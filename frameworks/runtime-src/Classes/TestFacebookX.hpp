@@ -11,14 +11,31 @@
 
 #include "cocos2d.h"
 
-class TestFacebookX {
+#include "FacebookX.hpp"
+
+class TestFacebookX : public h102::FacebookListener {
   
   static TestFacebookX* mSharedInstance;
   
 public:
   static TestFacebookX* getInstance();
   
+  TestFacebookX();
+  
   void testButton();
+  
+  virtual void onLogin(bool isLogin, const std::string& msg);
+  virtual void onSharedSuccess(const std::string& message);
+  virtual void onSharedFailed(const std::string& message);
+  virtual void onSharedCancel();
+  virtual void onAPI(const std::string& key, const std::string& jsonData);
+  virtual void onPermission(bool isLogin, const std::string& msg);
+  virtual void onFetchFriends(bool ok, const std::string& msg);
+  //    virtual void onRequestInvitableFriends( const FBInvitableFriendsInfo& friends );
+  virtual void onInviteFriendsWithInviteIdsResult( bool result, const std::string& msg );
+  virtual void onInviteFriendsResult( bool result, const std::string& msg );
+  
+  //    virtual void onGetUserInfo( const FBGraphUser& userInfo );
 };
 
 #endif /* TestFacebookX_hpp */

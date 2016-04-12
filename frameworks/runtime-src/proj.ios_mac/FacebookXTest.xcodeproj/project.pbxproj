@@ -13,6 +13,7 @@
 		0114E9421CBD0E3100A11713 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0114E93F1CBD0E3100A11713 /* FBSDKLoginKit.framework */; };
 		0114E9431CBD0E3100A11713 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0114E9401CBD0E3100A11713 /* FBSDKShareKit.framework */; };
 		0114E9461CBD6D7C00A11713 /* jsb_h102_FacebookX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0114E9441CBD6D7C00A11713 /* jsb_h102_FacebookX.cpp */; };
+		0114E94A1CBD750B00A11713 /* UIViewController+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0114E9491CBD750B00A11713 /* UIViewController+Utils.m */; };
 		013B669A1CBCB88E00E1E9DB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 013B668A1CBCB88E00E1E9DB /* .gitignore */; };
 		013B66A21CBCB88E00E1E9DB /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 013B66991CBCB88E00E1E9DB /* README.md */; };
 		013B66A91CBCB9A300E1E9DB /* FacebookX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 013B66A71CBCB9A300E1E9DB /* FacebookX.cpp */; };
@@ -154,6 +155,8 @@
 		0114E9401CBD0E3100A11713 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		0114E9441CBD6D7C00A11713 /* jsb_h102_FacebookX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = jsb_h102_FacebookX.cpp; path = "../../../better-facebook-sdk-cocos2dx-test/frameworks/FacebookX/Classes/js-bindings/jsb_h102_FacebookX.cpp"; sourceTree = "<group>"; };
 		0114E9451CBD6D7C00A11713 /* jsb_h102_FacebookX.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = jsb_h102_FacebookX.hpp; path = "../../../better-facebook-sdk-cocos2dx-test/frameworks/FacebookX/Classes/js-bindings/jsb_h102_FacebookX.hpp"; sourceTree = "<group>"; };
+		0114E9481CBD750B00A11713 /* UIViewController+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Utils.h"; sourceTree = "<group>"; };
+		0114E9491CBD750B00A11713 /* UIViewController+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Utils.m"; sourceTree = "<group>"; };
 		013B668A1CBCB88E00E1E9DB /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		013B66991CBCB88E00E1E9DB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		013B66A71CBCB9A300E1E9DB /* FacebookX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FacebookX.cpp; sourceTree = "<group>"; };
@@ -318,6 +321,8 @@
 			isa = PBXGroup;
 			children = (
 				013B66AD1CBCBA0900E1E9DB /* FacebookX.mm */,
+				0114E9481CBD750B00A11713 /* UIViewController+Utils.h */,
+				0114E9491CBD750B00A11713 /* UIViewController+Utils.m */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -648,6 +653,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				013B66AE1CBCBA0900E1E9DB /* FacebookX.mm in Sources */,
+				0114E94A1CBD750B00A11713 /* UIViewController+Utils.m in Sources */,
 				013B66A91CBCB9A300E1E9DB /* FacebookX.cpp in Sources */,
 				0114E93B1CBCBBDC00A11713 /* jsb_h102_testFacebookX.cpp in Sources */,
 				509D4AC917EBB2AB00697056 /* RootViewController.mm in Sources */,

@@ -8,6 +8,8 @@
 
 #include "TestFacebookX.hpp"
 
+using namespace h102;
+
 TestFacebookX* TestFacebookX::mSharedInstance = nullptr;
 
 TestFacebookX* TestFacebookX::getInstance() {
@@ -17,6 +19,50 @@ TestFacebookX* TestFacebookX::getInstance() {
   return mSharedInstance;
 }
 
-void TestFacebookX::testButton() {
-  CCLOG("TestFacebookX ------> abc");
+TestFacebookX::TestFacebookX() {
+  FacebookX::setListener(this);
 }
+
+void TestFacebookX::testButton() {
+//  CCLOG("TestFacebookX ------> abc");
+  FacebookX::login();
+}
+
+void TestFacebookX::onLogin(bool isLogin, const std::string& msg) {
+  CCLOG("%d %s", isLogin, msg.c_str());
+}
+
+void TestFacebookX::onSharedSuccess(const std::string& message) {
+  
+}
+
+void TestFacebookX::onSharedFailed(const std::string& message) {
+  
+}
+
+void TestFacebookX::onSharedCancel() {
+  
+}
+
+void TestFacebookX::onAPI(const std::string& key, const std::string& jsonData) {
+  
+}
+
+void TestFacebookX::onPermission(bool isLogin, const std::string& msg) {
+  
+}
+
+void TestFacebookX::onFetchFriends(bool ok, const std::string& msg) {
+  
+}
+
+//    void onRequestInvitableFriends( const FBInvitableFriendsInfo& friends );
+void TestFacebookX::onInviteFriendsWithInviteIdsResult( bool result, const std::string& msg ) {
+  
+}
+
+void TestFacebookX::onInviteFriendsResult( bool result, const std::string& msg ) {
+  
+}
+
+//    void onGetUserInfo( const FBGraphUser& userInfo );
