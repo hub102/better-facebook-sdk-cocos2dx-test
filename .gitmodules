@@ -1,0 +1,3 @@
+[submodule "frameworks/FacebookX"]
+	path = frameworks/FacebookX
+	url = git@github.com:hub102/better-facebook-sdk-cocos2dx.git
