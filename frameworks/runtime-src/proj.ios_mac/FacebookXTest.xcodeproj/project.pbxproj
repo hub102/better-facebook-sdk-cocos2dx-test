@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0114E9371CBCBAF500A11713 /* TestFacebookX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0114E9351CBCBAF500A11713 /* TestFacebookX.cpp */; };
 		0114E93B1CBCBBDC00A11713 /* jsb_h102_testFacebookX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0114E9391CBCBBDC00A11713 /* jsb_h102_testFacebookX.cpp */; };
+		0114E9411CBD0E3100A11713 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0114E93E1CBD0E3100A11713 /* FBSDKCoreKit.framework */; };
+		0114E9421CBD0E3100A11713 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0114E93F1CBD0E3100A11713 /* FBSDKLoginKit.framework */; };
+		0114E9431CBD0E3100A11713 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0114E9401CBD0E3100A11713 /* FBSDKShareKit.framework */; };
 		013B669A1CBCB88E00E1E9DB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 013B668A1CBCB88E00E1E9DB /* .gitignore */; };
 		013B66A01CBCB88E00E1E9DB /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 013B66971CBCB88E00E1E9DB /* .gitkeep */; };
 		013B66A21CBCB88E00E1E9DB /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 013B66991CBCB88E00E1E9DB /* README.md */; };
@@ -147,6 +150,9 @@
 		0114E9361CBCBAF500A11713 /* TestFacebookX.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestFacebookX.hpp; sourceTree = "<group>"; };
 		0114E9391CBCBBDC00A11713 /* jsb_h102_testFacebookX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsb_h102_testFacebookX.cpp; sourceTree = "<group>"; };
 		0114E93A1CBCBBDC00A11713 /* jsb_h102_testFacebookX.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = jsb_h102_testFacebookX.hpp; sourceTree = "<group>"; };
+		0114E93E1CBD0E3100A11713 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		0114E93F1CBD0E3100A11713 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		0114E9401CBD0E3100A11713 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		013B668A1CBCB88E00E1E9DB /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		013B66971CBCB88E00E1E9DB /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		013B66991CBCB88E00E1E9DB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -252,11 +258,14 @@
 				C037820C18BF77C500FE4F13 /* libjscocos2d iOS.a in Frameworks */,
 				1A676839180E9C1E0076BC67 /* libcocos2d iOS.a in Frameworks */,
 				D6B061241803AB9F0077942B /* CoreMotion.framework in Frameworks */,
+				0114E9411CBD0E3100A11713 /* FBSDKCoreKit.framework in Frameworks */,
 				1A82F5FB169AC92500C4B13A /* libsqlite3.dylib in Frameworks */,
 				D454520C156E22BD00887EB5 /* libz.dylib in Frameworks */,
 				A92275421517C094001B78AA /* QuartzCore.framework in Frameworks */,
 				A92275441517C094001B78AA /* OpenGLES.framework in Frameworks */,
+				0114E9431CBD0E3100A11713 /* FBSDKShareKit.framework in Frameworks */,
 				A92275461517C094001B78AA /* OpenAL.framework in Frameworks */,
+				0114E9421CBD0E3100A11713 /* FBSDKLoginKit.framework in Frameworks */,
 				A92275481517C094001B78AA /* AudioToolbox.framework in Frameworks */,
 				A922754A1517C094001B78AA /* AVFoundation.framework in Frameworks */,
 				A922754C1517C094001B78AA /* UIKit.framework in Frameworks */,
@@ -405,6 +414,9 @@
 		A92275401517C094001B78AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0114E93E1CBD0E3100A11713 /* FBSDKCoreKit.framework */,
+				0114E93F1CBD0E3100A11713 /* FBSDKLoginKit.framework */,
+				0114E9401CBD0E3100A11713 /* FBSDKShareKit.framework */,
 				9FA3AE451BE9BBCA00FC9645 /* GameController.framework */,
 				ED545A831B68A21C00C3958E /* libiconv.dylib */,
 				ED545A811B68A21500C3958E /* libiconv.dylib */,
@@ -784,6 +796,10 @@
 				COMPRESS_PNG_FILES = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -812,6 +828,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;
