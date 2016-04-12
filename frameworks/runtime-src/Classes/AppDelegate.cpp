@@ -43,6 +43,8 @@
 #include "platform/ios/JavaScriptObjCBridge.h"
 #endif
 
+#include "jsb_h102_testFacebookX.hpp"
+
 USING_NS_CC;
 using namespace CocosDenshion;
 
@@ -122,6 +124,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     
     // 3d extension can be commented out to reduce the package
     sc->addRegisterCallback(register_all_cocos2dx_3d_extension);
+  
+  sc->addRegisterCallback(register_all_h102);
     
 #if CC_USE_3D_PHYSICS && CC_ENABLE_BULLET_INTEGRATION
     // Physics 3d can be commented out to reduce the package

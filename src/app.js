@@ -31,6 +31,16 @@ var HelloWorldLayer = cc.Layer.extend({
         });
         this.addChild(this.sprite, 0);
 
+        var self = this;
+        var btn = new ccui.Button(res.CloseNormal_png, res.CloseSelected_png, "");
+        btn.x = size.width - 40;
+        btn.y = 40;
+        btn.scale = 2;
+        btn.addClickEventListener(function() {
+            h102.testFacebookX.testButton();
+        });
+        this.addChild(btn, 2);
+
         return true;
     }
 });
