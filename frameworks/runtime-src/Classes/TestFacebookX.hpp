@@ -24,6 +24,9 @@ public:
   
   void testButtonLogin();
   void testButtonLogout();
+  void testButtonShareLink();
+  void testButtonSharePhoto();
+  void testButtonShareVideo();
   
   virtual void onLogin(bool isLogin, const std::string& msg);
   virtual void onSharedSuccess(const std::string& message);

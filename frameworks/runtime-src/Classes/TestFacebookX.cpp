@@ -10,6 +10,7 @@
 
 using namespace h102;
 using namespace std;
+using namespace cocos2d;
 
 TestFacebookX* TestFacebookX::mSharedInstance = nullptr;
 
@@ -26,14 +27,7 @@ TestFacebookX::TestFacebookX() {
 
 void TestFacebookX::testButtonLogin() {
 //  CCLOG("TestFacebookX ------> abc");
-//  FacebookX::login();
-  FBShareInfo info;
-  info.type = FB_LINK;
-  info.text = "ABC";
-  info.title = "XYZ";
-  info.link = "https://hub102.com";
-  
-  FacebookX::share(info);
+  FacebookX::login();
 }
 
 void TestFacebookX::testButtonLogout() {
@@ -42,6 +36,28 @@ void TestFacebookX::testButtonLogout() {
   // CCLOG("Is logged in = %d", FacebookX::isLoggedIn());
   // CCLOG("Access token = %s", FacebookX::getAccessToken().c_str());
   // CCLOG("User ID = %s", FacebookX::getUserID().c_str());
+}
+
+void TestFacebookX::testButtonShareLink() {
+  FBShareInfo info;
+  info.type = FB_LINK;
+  info.text = "ABC";
+  info.title = "XYZ";
+  info.link = "https://hub102.com";
+  FacebookX::share(info);
+}
+
+void TestFacebookX::testButtonSharePhoto() {
+  FBShareInfo info;
+  info.type = FB_PHOTO;
+  info.text = "ABC";
+  info.title = "XYZ";
+  info.media = FileUtils::getInstance()->getWritablePath() + "hoodsters.png";
+  FacebookX::share(info);
+}
+
+void TestFacebookX::testButtonShareVideo() {
+  
 }
 
 void TestFacebookX::onLogin(bool isLogin, const std::string& msg) {

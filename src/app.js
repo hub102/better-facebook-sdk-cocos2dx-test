@@ -14,46 +14,62 @@ var HelloWorldLayer = cc.Layer.extend({
         // ask the window size
         var size = cc.winSize;
 
-        /////////////////////////////
-        // 3. add your codes below...
-        // add a label shows "Hello World"
-        // create and initialize a label
-        var helloLabel = new cc.LabelTTF("Hello World", "Arial", 38);
-        // position the label on the center of the screen
-        helloLabel.x = size.width / 2;
-        helloLabel.y = size.height / 2 + 200;
-        // add the label as a child to this layer
-        this.addChild(helloLabel, 5);
+        var data = jsb.fileUtils.getDataFromFile(res.hoodsters);
+        var desPath = jsb.fileUtils.getWritablePath() + "hoodsters.png";
 
-        // add "HelloWorld" splash screen"
-        this.sprite = new cc.Sprite(res.HelloWorld_png);
-        this.sprite.attr({
-            x: size.width / 2,
-            y: size.height / 2
-        });
-        this.addChild(this.sprite, 0);
+        jsb.fileUtils.writeDataToFile(data, desPath);
 
         var self = this;
-        var btn = new ccui.Button(res.CloseNormal_png, res.CloseSelected_png, "");
-        btn.x = size.width - 40;
-        btn.y = 40;
-        btn.scale = 2;
-        btn.setTitleText("LOGIN");
-        this._btn = btn;
+        var btnLogin = new ccui.Button();
+        btnLogin.x = size.width/2;
+        btnLogin.y = size.height - 50;
+        btnLogin.setTitleText("LOGIN");
+        btnLogin.setTitleFontSize(20);
+        this._btnLogin = btnLogin;
 
-        btn.addClickEventListener(
+        btnLogin.addClickEventListener(
             function() {
                 if (!self._login) {
                     h102.testFacebookX.testButtonLogin();
-                    self._btn.setTitleText("LOGOUT");
+                    self._btnLogin.setTitleText("LOGOUT");
                 } else {
                     h102.testFacebookX.testButtonLogout();
-                    self._btn.setTitleText("LOGIN");
+                    self._btnLogin.setTitleText("LOGIN");
                 }
                 self._login = !self._login;
             }
         );
-        this.addChild(btn, 2);
+        this.addChild(btnLogin, 2);
+
+        var btnShareLink = new ccui.Button();
+        btnShareLink.x = size.width/2;
+        btnShareLink.y = size.height - 100;
+        btnShareLink.setTitleText("SHARE LINK");
+        btnShareLink.setTitleFontSize(20);
+        btnShareLink.addClickEventListener(function() {
+            h102.testFacebookX.testButtonShareLink();
+        });
+        this.addChild(btnShareLink);
+
+        var btnSharePhoto = new ccui.Button();
+        btnSharePhoto.x = size.width/2;
+        btnSharePhoto.y = size.height - 150;
+        btnSharePhoto.setTitleText("SHARE PHOTO");
+        btnSharePhoto.setTitleFontSize(20);
+        btnSharePhoto.addClickEventListener(function() {
+            h102.testFacebookX.testButtonSharePhoto();
+        });
+        this.addChild(btnSharePhoto);
+
+        var btnShareVideo = new ccui.Button();
+        btnShareVideo.x = size.width/2;
+        btnShareVideo.y = size.height - 200;
+        btnShareVideo.setTitleText("SHARE VIDEO");
+        btnShareVideo.setTitleFontSize(20);
+        btnShareVideo.addClickEventListener(function() {
+            h102.testFacebookX.testButtonShareVideo();
+        });
+        this.addChild(btnShareVideo);
 
         return true;
     }

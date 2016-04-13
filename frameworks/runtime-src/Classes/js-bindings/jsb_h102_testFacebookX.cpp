@@ -74,6 +74,45 @@ bool js_h102_testFacebookX_testButtonLogout(JSContext *cx, uint32_t argc, jsval 
   return false;
 }
 
+bool js_h102_testFacebookX_testButtonShareLink(JSContext *cx, uint32_t argc, jsval *vp)
+{
+  do {
+    if (argc == 0) {
+      TestFacebookX::getInstance()->testButtonShareLink();
+      return true;
+    }
+  } while(0);
+  
+  JS_ReportError(cx, "js_h102_testFacebookX_testButtonLogout : wrong number of arguments");
+  return false;
+}
+
+bool js_h102_testFacebookX_testButtonSharePhoto(JSContext *cx, uint32_t argc, jsval *vp)
+{
+  do {
+    if (argc == 0) {
+      TestFacebookX::getInstance()->testButtonSharePhoto();
+      return true;
+    }
+  } while(0);
+  
+  JS_ReportError(cx, "js_h102_testFacebookX_testButtonLogout : wrong number of arguments");
+  return false;
+}
+
+bool js_h102_testFacebookX_testButtonShareVideo(JSContext *cx, uint32_t argc, jsval *vp)
+{
+  do {
+    if (argc == 0) {
+      TestFacebookX::getInstance()->testButtonShareVideo();
+      return true;
+    }
+  } while(0);
+  
+  JS_ReportError(cx, "js_h102_testFacebookX_testButtonLogout : wrong number of arguments");
+  return false;
+}
+
 void js_h102_Utils_finalize(JSFreeOp *fop, JSObject *obj) {
   CCLOGINFO("jsbindings: finalizing JS object %p (H102::Utils)", obj);
 }
@@ -103,6 +142,9 @@ void js_register_h102_testFacebookX(JSContext *cx, JS::HandleObject global) {
   static JSFunctionSpec st_funcs[] = {
     JS_FN("testButtonLogin", js_h102_testFacebookX_testButtonLogin, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
     JS_FN("testButtonLogout", js_h102_testFacebookX_testButtonLogout, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+    JS_FN("testButtonShareLink", js_h102_testFacebookX_testButtonShareLink, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+    JS_FN("testButtonSharePhoto", js_h102_testFacebookX_testButtonSharePhoto, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+    JS_FN("testButtonShareVideo", js_h102_testFacebookX_testButtonShareVideo, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
     JS_FS_END
   };
   
