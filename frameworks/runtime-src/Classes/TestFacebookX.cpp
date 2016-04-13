@@ -63,7 +63,7 @@ void TestFacebookX::testButtonShareVideo() {
 void TestFacebookX::onLogin(bool isLogin, const std::string& msg) {
   CCLOG("%d %s", isLogin, msg.c_str());
   CCLOG("Access token = %s", FacebookX::getAccessToken().c_str());
-  // CCLOG("User ID = %s", FacebookX::getUserID().c_str());
+  CCLOG("User ID = %s", FacebookX::getUserID().c_str());
   
   vector<string> permissions = FacebookX::getPermissionList();
   
