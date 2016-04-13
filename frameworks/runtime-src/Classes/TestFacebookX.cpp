@@ -26,7 +26,14 @@ TestFacebookX::TestFacebookX() {
 
 void TestFacebookX::testButtonLogin() {
 //  CCLOG("TestFacebookX ------> abc");
-  FacebookX::login();
+//  FacebookX::login();
+  FBShareInfo info;
+  info.type = FB_LINK;
+  info.text = "ABC";
+  info.title = "XYZ";
+  info.link = "https://hub102.com";
+  
+  FacebookX::share(info);
 }
 
 void TestFacebookX::testButtonLogout() {
@@ -49,15 +56,15 @@ void TestFacebookX::onLogin(bool isLogin, const std::string& msg) {
 }
 
 void TestFacebookX::onSharedSuccess(const std::string& message) {
-  
+  CCLOG("onSharedSuccess: %s", message.c_str());
 }
 
 void TestFacebookX::onSharedFailed(const std::string& message) {
-  
+  CCLOG("onSharedFailed: %s", message.c_str());
 }
 
 void TestFacebookX::onSharedCancel() {
-  
+  CCLOG("onSharedCancel");
 }
 
 void TestFacebookX::onAPI(const std::string& key, const std::string& jsonData) {
