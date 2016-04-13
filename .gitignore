@@ -4,6 +4,8 @@ simulator/
 build/
 .DS_Store
 
+!frameworks/cocos2d-x/build
+
 local.properties
 
 frameworks/runtime-src/proj.android/ant.properties
