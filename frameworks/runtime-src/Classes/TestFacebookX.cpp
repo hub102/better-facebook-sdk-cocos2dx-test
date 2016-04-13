@@ -23,13 +23,23 @@ TestFacebookX::TestFacebookX() {
   FacebookX::setListener(this);
 }
 
-void TestFacebookX::testButton() {
+void TestFacebookX::testButtonLogin() {
 //  CCLOG("TestFacebookX ------> abc");
   FacebookX::login();
 }
 
+void TestFacebookX::testButtonLogout() {
+//  CCLOG("TestFacebookX ------> abc");
+  FacebookX::logout();
+  CCLOG("Is logged in = %d", FacebookX::isLoggedIn());
+  CCLOG("Access token = %s", FacebookX::getAccessToken().c_str());
+  CCLOG("User ID = %s", FacebookX::getUserID().c_str());
+}
+
 void TestFacebookX::onLogin(bool isLogin, const std::string& msg) {
   CCLOG("%d %s", isLogin, msg.c_str());
+  CCLOG("Access token = %s", FacebookX::getAccessToken().c_str());
+  CCLOG("User ID = %s", FacebookX::getUserID().c_str());
 }
 
 void TestFacebookX::onSharedSuccess(const std::string& message) {

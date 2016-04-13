@@ -48,16 +48,29 @@ bool js_h102_testFacebookX_constructor(JSContext *cx, uint32_t argc, jsval *vp)
   return true;
 }
 
-bool js_h102_testFacebookX_testButton(JSContext *cx, uint32_t argc, jsval *vp)
+bool js_h102_testFacebookX_testButtonLogin(JSContext *cx, uint32_t argc, jsval *vp)
 {
   do {
     if (argc == 0) {
-      TestFacebookX::getInstance()->testButton();
+      TestFacebookX::getInstance()->testButtonLogin();
       return true;
     }
   } while(0);
   
-  JS_ReportError(cx, "js_h102_testFacebookX_testButton : wrong number of arguments");
+  JS_ReportError(cx, "js_h102_testFacebookX_testButtonLogin : wrong number of arguments");
+  return false;
+}
+
+bool js_h102_testFacebookX_testButtonLogout(JSContext *cx, uint32_t argc, jsval *vp)
+{
+  do {
+    if (argc == 0) {
+      TestFacebookX::getInstance()->testButtonLogout();
+      return true;
+    }
+  } while(0);
+  
+  JS_ReportError(cx, "js_h102_testFacebookX_testButtonLogout : wrong number of arguments");
   return false;
 }
 
@@ -88,7 +101,8 @@ void js_register_h102_testFacebookX(JSContext *cx, JS::HandleObject global) {
   };
   
   static JSFunctionSpec st_funcs[] = {
-    JS_FN("testButton", js_h102_testFacebookX_testButton, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+    JS_FN("testButtonLogin", js_h102_testFacebookX_testButtonLogin, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+    JS_FN("testButtonLogout", js_h102_testFacebookX_testButtonLogout, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
     JS_FS_END
   };
   

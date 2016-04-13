@@ -17,7 +17,8 @@ extern JSClass  *jsb_h102_testFacebookX_class;
 extern JSObject *jsb_h102_testFacebookX_prototype;
 
 bool js_h102_testFacebookX_constructor(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_h102_testFacebookX_testButton(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_h102_testFacebookX_testButtonLogin(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_h102_testFacebookX_testButtonLogout(JSContext *cx, uint32_t argc, jsval *vp);
 
 void register_all_h102(JSContext* cx, JS::HandleObject obj);
 

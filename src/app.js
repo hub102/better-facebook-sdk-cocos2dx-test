@@ -1,6 +1,8 @@
 
 var HelloWorldLayer = cc.Layer.extend({
     sprite:null,
+    _login: false,
+    _btn: null,
     ctor:function () {
         //////////////////////////////
         // 1. super init first
@@ -36,9 +38,21 @@ var HelloWorldLayer = cc.Layer.extend({
         btn.x = size.width - 40;
         btn.y = 40;
         btn.scale = 2;
-        btn.addClickEventListener(function() {
-            h102.testFacebookX.testButton();
-        });
+        btn.setTitleText("LOGIN");
+        this._btn = btn;
+
+        btn.addClickEventListener(
+            function() {
+                if (!self._login) {
+                    h102.testFacebookX.testButtonLogin();
+                    self._btn.setTitleText("LOGOUT");
+                } else {
+                    h102.testFacebookX.testButtonLogout();
+                    self._btn.setTitleText("LOGIN");
+                }
+                self._login = !self._login;
+            }
+        );
         this.addChild(btn, 2);
 
         return true;

@@ -22,7 +22,8 @@ public:
   
   TestFacebookX();
   
-  void testButton();
+  void testButtonLogin();
+  void testButtonLogout();
   
   virtual void onLogin(bool isLogin, const std::string& msg);
   virtual void onSharedSuccess(const std::string& message);
