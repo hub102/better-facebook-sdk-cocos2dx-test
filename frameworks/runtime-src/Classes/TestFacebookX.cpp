@@ -9,6 +9,7 @@
 #include "TestFacebookX.hpp"
 
 using namespace h102;
+using namespace std;
 
 TestFacebookX* TestFacebookX::mSharedInstance = nullptr;
 
@@ -31,15 +32,20 @@ void TestFacebookX::testButtonLogin() {
 void TestFacebookX::testButtonLogout() {
 //  CCLOG("TestFacebookX ------> abc");
   FacebookX::logout();
-  CCLOG("Is logged in = %d", FacebookX::isLoggedIn());
-  CCLOG("Access token = %s", FacebookX::getAccessToken().c_str());
-  CCLOG("User ID = %s", FacebookX::getUserID().c_str());
+  // CCLOG("Is logged in = %d", FacebookX::isLoggedIn());
+  // CCLOG("Access token = %s", FacebookX::getAccessToken().c_str());
+  // CCLOG("User ID = %s", FacebookX::getUserID().c_str());
 }
 
 void TestFacebookX::onLogin(bool isLogin, const std::string& msg) {
   CCLOG("%d %s", isLogin, msg.c_str());
   CCLOG("Access token = %s", FacebookX::getAccessToken().c_str());
-  CCLOG("User ID = %s", FacebookX::getUserID().c_str());
+  // CCLOG("User ID = %s", FacebookX::getUserID().c_str());
+  
+  vector<string> permissions = FacebookX::getPermissionList();
+  
+  for(string p : permissions)
+    CCLOG("Permission - %s", p.c_str());
 }
 
 void TestFacebookX::onSharedSuccess(const std::string& message) {
