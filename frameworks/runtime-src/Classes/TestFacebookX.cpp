@@ -12,6 +12,8 @@ using namespace h102;
 using namespace std;
 using namespace cocos2d;
 
+#include <iostream>
+
 TestFacebookX* TestFacebookX::mSharedInstance = nullptr;
 
 TestFacebookX* TestFacebookX::getInstance() {
@@ -64,9 +66,11 @@ void TestFacebookX::onLogin(bool isLogin, const std::string& msg) {
   CCLOG("%d %s", isLogin, msg.c_str());
   CCLOG("Access token = %s", FacebookX::getAccessToken().c_str());
   CCLOG("User ID = %s", FacebookX::getUserID().c_str());
-  
+  map<string, string> params;
+  FacebookX::api("me", "test_me");
+    
   vector<string> permissions = FacebookX::getPermissionList();
-  
+    
   for(string p : permissions)
     CCLOG("Permission - %s", p.c_str());
 }
@@ -84,7 +88,11 @@ void TestFacebookX::onSharedCancel() {
 }
 
 void TestFacebookX::onAPI(const std::string& key, const std::string& jsonData) {
-  
+    cout << "onAPI, tag = " << key << "\n";
+
+    if (key == "test_me") {
+        cout << "Data = " << jsonData << "\n";
+    }
 }
 
 void TestFacebookX::onPermission(bool isLogin, const std::string& msg) {
