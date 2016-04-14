@@ -165,6 +165,7 @@
 		013B66AD1CBCBA0900E1E9DB /* FacebookX.mm */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FacebookX.mm; sourceTree = "<group>"; tabWidth = 4; };
 		017366F81CBE4C7500626C88 /* FacebookShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookShareDelegate.h; sourceTree = "<group>"; };
 		017366F91CBE4C7500626C88 /* FacebookShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookShareDelegate.m; sourceTree = "<group>"; };
+		017366FD1CBE63BD00626C88 /* FacebookX-impl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FacebookX-impl.h"; sourceTree = "<group>"; };
 		1A1A081B18C9DF05005C6854 /* project.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = project.json; path = ../../../project.json; sourceTree = "<group>"; };
 		1A6BF21418C9DB5900FB0E1C /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = ../../../main.js; sourceTree = "<group>"; };
 		1A82F5FA169AC92500C4B13A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -323,6 +324,7 @@
 		013B66961CBCB88E00E1E9DB /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				017366FD1CBE63BD00626C88 /* FacebookX-impl.h */,
 				013B66AD1CBCBA0900E1E9DB /* FacebookX.mm */,
 				0114E9481CBD750B00A11713 /* UIViewController+Utils.h */,
 				0114E9491CBD750B00A11713 /* UIViewController+Utils.m */,

@@ -68,7 +68,7 @@ void TestFacebookX::onLogin(bool isLogin, const std::string& msg) {
   CCLOG("User ID = %s", FacebookX::getUserID().c_str());
   map<string, string> params;
   FacebookX::api("me", "test_me");
-    
+
   vector<string> permissions = FacebookX::getPermissionList();
     
   for(string p : permissions)
