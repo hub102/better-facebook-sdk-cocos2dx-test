@@ -64,7 +64,7 @@ var HelloWorldLayer = cc.Layer.extend({
         var btnShareVideo = new ccui.Button();
         btnShareVideo.x = size.width/2;
         btnShareVideo.y = size.height - 200;
-        btnShareVideo.setTitleText("SHARE VIDEO");
+        btnShareVideo.setTitleText("SHARE OPEN GRAPH STORY");
         btnShareVideo.setTitleFontSize(20);
         btnShareVideo.addClickEventListener(function() {
             h102.testFacebookX.testButtonShareVideo();
