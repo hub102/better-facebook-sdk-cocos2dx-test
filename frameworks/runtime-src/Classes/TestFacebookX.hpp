@@ -13,9 +13,13 @@
 
 #include "FacebookX.hpp"
 
+#include <vector>
+
 class TestFacebookX : public h102::FacebookListener {
   
   static TestFacebookX* mSharedInstance;
+  
+  std::vector<std::string> mFriendIds;
   
 public:
   static TestFacebookX* getInstance();
@@ -28,6 +32,7 @@ public:
   void testButtonSharePhoto();
   void testButtonShareVideo();
   void testReqInviteFriend();
+  void testInviteFriends();
   
   virtual void onLogin(bool isLogin, const std::string& msg);
   virtual void onSharedSuccess(const std::string& message);

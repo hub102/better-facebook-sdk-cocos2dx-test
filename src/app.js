@@ -74,12 +74,22 @@ var HelloWorldLayer = cc.Layer.extend({
         var btnReqInviteFriend = new ccui.Button();
         btnReqInviteFriend.x = size.width/2;
         btnReqInviteFriend.y = size.height - 250;
-        btnReqInviteFriend.setTitleText("Request Invite Friends");
+        btnReqInviteFriend.setTitleText("REQUEST INVITE FRIENDS");
         btnReqInviteFriend.setTitleFontSize(20);
         btnReqInviteFriend.addClickEventListener(function() {
             h102.testFacebookX.testReqInviteFriend();
         });
         this.addChild(btnReqInviteFriend);
+
+        var btnInviteFriend = new ccui.Button();
+        btnInviteFriend.x = size.width/2;
+        btnInviteFriend.y = size.height - 300;
+        btnInviteFriend.setTitleText("INVITE FRIENDS");
+        btnInviteFriend.setTitleFontSize(20);
+        btnInviteFriend.addClickEventListener(function() {
+            h102.testFacebookX.testInviteFriend();
+        });
+        this.addChild(btnInviteFriend);
 
         return true;
     }

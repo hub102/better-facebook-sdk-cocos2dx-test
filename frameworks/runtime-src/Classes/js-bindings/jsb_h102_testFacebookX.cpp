@@ -125,6 +125,18 @@ bool js_h102_testFacebookX_testReqInviteFriend(JSContext *cx, uint32_t argc, jsv
   return false;
 }
 
+bool js_h102_testFacebookX_testInviteFriend(JSContext *cx, uint32_t argc, jsval *vp) {
+  do {
+    if (argc == 0) {
+      TestFacebookX::getInstance()->testInviteFriends();
+      return true;
+    }
+  } while(0);
+  
+  JS_ReportError(cx, "js_h102_testFacebookX_testInviteFriend : wrong number of arguments");
+  return false;
+}
+
 void js_h102_Utils_finalize(JSFreeOp *fop, JSObject *obj) {
   CCLOGINFO("jsbindings: finalizing JS object %p (H102::Utils)", obj);
 }
@@ -158,6 +170,7 @@ void js_register_h102_testFacebookX(JSContext *cx, JS::HandleObject global) {
     JS_FN("testButtonSharePhoto", js_h102_testFacebookX_testButtonSharePhoto, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
     JS_FN("testButtonShareVideo", js_h102_testFacebookX_testButtonShareVideo, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
     JS_FN("testReqInviteFriend", js_h102_testFacebookX_testReqInviteFriend, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+    JS_FN("testInviteFriend", js_h102_testFacebookX_testInviteFriend, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
     JS_FS_END
   };
   

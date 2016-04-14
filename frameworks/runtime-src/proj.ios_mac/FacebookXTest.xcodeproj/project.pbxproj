@@ -19,6 +19,7 @@
 		013B66A91CBCB9A300E1E9DB /* FacebookX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 013B66A71CBCB9A300E1E9DB /* FacebookX.cpp */; };
 		013B66AE1CBCBA0900E1E9DB /* FacebookX.mm in Sources */ = {isa = PBXBuildFile; fileRef = 013B66AD1CBCBA0900E1E9DB /* FacebookX.mm */; };
 		017366FA1CBE4C7500626C88 /* FacebookShareDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 017366F91CBE4C7500626C88 /* FacebookShareDelegate.m */; };
+		017367311CBFC00700626C88 /* FacebookGameRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 017367301CBFC00700626C88 /* FacebookGameRequestDelegate.m */; };
 		1A67682A180E9C060076BC67 /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB48180E9ACB004C840B /* libcocos2d Mac.a */; };
 		1A676839180E9C1E0076BC67 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB56180E9ACB004C840B /* libcocos2d iOS.a */; };
 		1A82F5FB169AC92500C4B13A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A82F5FA169AC92500C4B13A /* libsqlite3.dylib */; };
@@ -167,6 +168,8 @@
 		017366F91CBE4C7500626C88 /* FacebookShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookShareDelegate.m; sourceTree = "<group>"; };
 		017366FD1CBE63BD00626C88 /* FacebookX-impl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FacebookX-impl.h"; sourceTree = "<group>"; };
 		017367241CBF861F00626C88 /* json.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
+		0173672F1CBFC00700626C88 /* FacebookGameRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookGameRequestDelegate.h; sourceTree = "<group>"; };
+		017367301CBFC00700626C88 /* FacebookGameRequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookGameRequestDelegate.m; sourceTree = "<group>"; };
 		1A1A081B18C9DF05005C6854 /* project.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = project.json; path = ../../../project.json; sourceTree = "<group>"; };
 		1A6BF21418C9DB5900FB0E1C /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = ../../../main.js; sourceTree = "<group>"; };
 		1A82F5FA169AC92500C4B13A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -332,6 +335,8 @@
 				0114E9491CBD750B00A11713 /* UIViewController+Utils.m */,
 				017366F81CBE4C7500626C88 /* FacebookShareDelegate.h */,
 				017366F91CBE4C7500626C88 /* FacebookShareDelegate.m */,
+				0173672F1CBFC00700626C88 /* FacebookGameRequestDelegate.h */,
+				017367301CBFC00700626C88 /* FacebookGameRequestDelegate.m */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -670,6 +675,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				013B66AE1CBCBA0900E1E9DB /* FacebookX.mm in Sources */,
+				017367311CBFC00700626C88 /* FacebookGameRequestDelegate.m in Sources */,
 				0114E94A1CBD750B00A11713 /* UIViewController+Utils.m in Sources */,
 				013B66A91CBCB9A300E1E9DB /* FacebookX.cpp in Sources */,
 				0114E93B1CBCBBDC00A11713 /* jsb_h102_testFacebookX.cpp in Sources */,
