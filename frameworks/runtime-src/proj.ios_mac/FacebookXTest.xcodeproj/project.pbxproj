@@ -160,12 +160,13 @@
 		0114E9491CBD750B00A11713 /* UIViewController+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Utils.m"; sourceTree = "<group>"; };
 		013B668A1CBCB88E00E1E9DB /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		013B66991CBCB88E00E1E9DB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		013B66A71CBCB9A300E1E9DB /* FacebookX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FacebookX.cpp; sourceTree = "<group>"; };
+		013B66A71CBCB9A300E1E9DB /* FacebookX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FacebookX.cpp; sourceTree = "<group>"; tabWidth = 4; };
 		013B66A81CBCB9A300E1E9DB /* FacebookX.hpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.cpp.h; path = FacebookX.hpp; sourceTree = "<group>"; tabWidth = 4; };
 		013B66AD1CBCBA0900E1E9DB /* FacebookX.mm */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FacebookX.mm; sourceTree = "<group>"; tabWidth = 4; };
 		017366F81CBE4C7500626C88 /* FacebookShareDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookShareDelegate.h; sourceTree = "<group>"; };
 		017366F91CBE4C7500626C88 /* FacebookShareDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookShareDelegate.m; sourceTree = "<group>"; };
 		017366FD1CBE63BD00626C88 /* FacebookX-impl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FacebookX-impl.h"; sourceTree = "<group>"; };
+		017367241CBF861F00626C88 /* json.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
 		1A1A081B18C9DF05005C6854 /* project.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = project.json; path = ../../../project.json; sourceTree = "<group>"; };
 		1A6BF21418C9DB5900FB0E1C /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = ../../../main.js; sourceTree = "<group>"; };
 		1A82F5FA169AC92500C4B13A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -306,6 +307,7 @@
 		013B668B1CBCB88E00E1E9DB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0173670D1CBF837F00626C88 /* json */,
 				013B66A31CBCB98B00E1E9DB /* js-bindings */,
 				013B66A71CBCB9A300E1E9DB /* FacebookX.cpp */,
 				013B66A81CBCB9A300E1E9DB /* FacebookX.hpp */,
@@ -342,6 +344,14 @@
 			);
 			name = "js-bindings";
 			path = "../../../../better-facebook-sdk-cocos2dx/Classes/js-bindings";
+			sourceTree = "<group>";
+		};
+		0173670D1CBF837F00626C88 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				017367241CBF861F00626C88 /* json.hpp */,
+			);
+			path = json;
 			sourceTree = "<group>";
 		};
 		15628F5B15F0F5C2000CF24B /* Resources */ = {
@@ -821,7 +831,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
@@ -852,7 +862,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;

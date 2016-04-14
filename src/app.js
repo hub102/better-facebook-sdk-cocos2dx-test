@@ -71,6 +71,16 @@ var HelloWorldLayer = cc.Layer.extend({
         });
         this.addChild(btnShareVideo);
 
+        var btnReqInviteFriend = new ccui.Button();
+        btnReqInviteFriend.x = size.width/2;
+        btnReqInviteFriend.y = size.height - 250;
+        btnReqInviteFriend.setTitleText("Request Invite Friends");
+        btnReqInviteFriend.setTitleFontSize(20);
+        btnReqInviteFriend.addClickEventListener(function() {
+            h102.testFacebookX.testReqInviteFriend();
+        });
+        this.addChild(btnReqInviteFriend);
+
         return true;
     }
 });

@@ -62,6 +62,12 @@ void TestFacebookX::testButtonShareVideo() {
   
 }
 
+void TestFacebookX::testReqInviteFriend() {
+  FBAPIParam params;
+  params[kRI_ResponseFields] = "id,name,picture,email,first_name,last_name,installed"; 
+  FacebookX::requestInvitableFriends(params);
+}
+
 void TestFacebookX::onLogin(bool isLogin, const std::string& msg) {
   CCLOG("%d %s", isLogin, msg.c_str());
   CCLOG("Access token = %s", FacebookX::getAccessToken().c_str());
@@ -103,7 +109,10 @@ void TestFacebookX::onFetchFriends(bool ok, const std::string& msg) {
   
 }
 
-//    void onRequestInvitableFriends( const FBInvitableFriendsInfo& friends );
+void TestFacebookX::onRequestInvitableFriends( const FBInvitableFriendsInfo& friends ) {
+  CCLOG("%s", friends.getOriginalString().c_str());
+}
+
 void TestFacebookX::onInviteFriendsWithInviteIdsResult( bool result, const std::string& msg ) {
   
 }

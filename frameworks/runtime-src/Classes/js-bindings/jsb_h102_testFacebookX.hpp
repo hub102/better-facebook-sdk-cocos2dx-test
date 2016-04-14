@@ -22,6 +22,7 @@ bool js_h102_testFacebookX_testButtonLogout(JSContext *cx, uint32_t argc, jsval 
 bool js_h102_testFacebookX_testButtonShareLink(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_h102_testFacebookX_testButtonSharePhoto(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_h102_testFacebookX_testButtonShareVideo(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_h102_testFacebookX_testReqInviteFriend(JSContext *cx, uint32_t argc, jsval *vp);
 
 void register_all_h102(JSContext* cx, JS::HandleObject obj);
 
