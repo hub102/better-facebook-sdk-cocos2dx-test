@@ -71,13 +71,23 @@ void TestFacebookX::testButtonShareVideo() {
     FacebookX::shareOpenGraphStory(properties, actionType, ppn);
 }
 
+void TestFacebookX::testReqInviteFriend() {
+  FBAPIParam params;
+  params[kRI_ResponseFields] = "id,name,picture,email,first_name,last_name,installed"; 
+  FacebookX::requestInvitableFriends(params);
+}
+
+void TestFacebookX::testInviteFriends() {
+  FacebookX::inviteFriendsWithInviteIds(mFriendIds, "BetterX", "This is a test invitation");
+}
+
 void TestFacebookX::onLogin(bool isLogin, const std::string& msg) {
   CCLOG("%d %s", isLogin, msg.c_str());
   CCLOG("Access token = %s", FacebookX::getAccessToken().c_str());
   CCLOG("User ID = %s", FacebookX::getUserID().c_str());
   map<string, string> params;
   FacebookX::api("me", "test_me");
-    
+
   vector<string> permissions = FacebookX::getPermissionList();
     
   for(string p : permissions)
@@ -112,9 +122,18 @@ void TestFacebookX::onFetchFriends(bool ok, const std::string& msg) {
   
 }
 
-//    void onRequestInvitableFriends( const FBInvitableFriendsInfo& friends );
-void TestFacebookX::onInviteFriendsWithInviteIdsResult( bool result, const std::string& msg ) {
+void TestFacebookX::onRequestInvitableFriends( const FBInvitableFriendsInfo& friends ) {
+  CCLOG("%s", friends.getOriginalString().c_str());
   
+  mFriendIds.clear();
+  
+  for (auto it = friends.begin(); it != friends.end(); ++it) {
+    mFriendIds.push_back((*it).getUserId());
+  }
+}
+
+void TestFacebookX::onInviteFriendsWithInviteIdsResult( bool result, const std::string& msg ) {
+  CCLOG("%d %s", result, msg.c_str());
 }
 
 void TestFacebookX::onInviteFriendsResult( bool result, const std::string& msg ) {

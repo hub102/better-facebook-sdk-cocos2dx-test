@@ -83,7 +83,7 @@ bool js_h102_testFacebookX_testButtonShareLink(JSContext *cx, uint32_t argc, jsv
     }
   } while(0);
   
-  JS_ReportError(cx, "js_h102_testFacebookX_testButtonLogout : wrong number of arguments");
+  JS_ReportError(cx, "js_h102_testFacebookX_testButtonShareLink : wrong number of arguments");
   return false;
 }
 
@@ -96,7 +96,7 @@ bool js_h102_testFacebookX_testButtonSharePhoto(JSContext *cx, uint32_t argc, js
     }
   } while(0);
   
-  JS_ReportError(cx, "js_h102_testFacebookX_testButtonLogout : wrong number of arguments");
+  JS_ReportError(cx, "js_h102_testFacebookX_testButtonSharePhoto : wrong number of arguments");
   return false;
 }
 
@@ -109,7 +109,31 @@ bool js_h102_testFacebookX_testButtonShareVideo(JSContext *cx, uint32_t argc, js
     }
   } while(0);
   
-  JS_ReportError(cx, "js_h102_testFacebookX_testButtonLogout : wrong number of arguments");
+  JS_ReportError(cx, "js_h102_testFacebookX_testButtonShareVideo : wrong number of arguments");
+  return false;
+}
+
+bool js_h102_testFacebookX_testReqInviteFriend(JSContext *cx, uint32_t argc, jsval *vp) {
+  do {
+    if (argc == 0) {
+      TestFacebookX::getInstance()->testReqInviteFriend();
+      return true;
+    }
+  } while(0);
+  
+  JS_ReportError(cx, "js_h102_testFacebookX_testReqInviteFriend : wrong number of arguments");
+  return false;
+}
+
+bool js_h102_testFacebookX_testInviteFriend(JSContext *cx, uint32_t argc, jsval *vp) {
+  do {
+    if (argc == 0) {
+      TestFacebookX::getInstance()->testInviteFriends();
+      return true;
+    }
+  } while(0);
+  
+  JS_ReportError(cx, "js_h102_testFacebookX_testInviteFriend : wrong number of arguments");
   return false;
 }
 
@@ -145,6 +169,8 @@ void js_register_h102_testFacebookX(JSContext *cx, JS::HandleObject global) {
     JS_FN("testButtonShareLink", js_h102_testFacebookX_testButtonShareLink, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
     JS_FN("testButtonSharePhoto", js_h102_testFacebookX_testButtonSharePhoto, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
     JS_FN("testButtonShareVideo", js_h102_testFacebookX_testButtonShareVideo, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+    JS_FN("testReqInviteFriend", js_h102_testFacebookX_testReqInviteFriend, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+    JS_FN("testInviteFriend", js_h102_testFacebookX_testInviteFriend, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
     JS_FS_END
   };
   
