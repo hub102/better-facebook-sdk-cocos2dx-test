@@ -59,7 +59,16 @@ void TestFacebookX::testButtonSharePhoto() {
 }
 
 void TestFacebookX::testButtonShareVideo() {
-  
+  FBGraphStoryProperties properties;
+  properties.type = "better_fbx:person";
+  properties.title = "I beat a friend";
+  properties.description = "Score: 10000";
+  properties.image = "https://fbcdn-photos-h-a.akamaihd.net/hphotos-ak-xfp1/t39.2081-0/p128x128/10333106_1693250547571713_1233636624_n.png";
+  properties.url = "https://apps.facebook.com/joselitopuzzle_test/";
+
+    std::string actionType = std::string("better_fbx:beat");
+    std::string ppn = std::string("person");
+    FacebookX::shareOpenGraphStory(properties, actionType, ppn);
 }
 
 void TestFacebookX::onLogin(bool isLogin, const std::string& msg) {
