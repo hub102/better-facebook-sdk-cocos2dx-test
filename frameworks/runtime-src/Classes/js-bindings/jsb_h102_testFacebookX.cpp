@@ -137,8 +137,8 @@ bool js_h102_testFacebookX_testInviteFriend(JSContext *cx, uint32_t argc, jsval 
   return false;
 }
 
-void js_h102_Utils_finalize(JSFreeOp *fop, JSObject *obj) {
-  CCLOGINFO("jsbindings: finalizing JS object %p (H102::Utils)", obj);
+void js_h102_testFacebookX_finalize(JSFreeOp *fop, JSObject *obj) {
+  CCLOGINFO("jsbindings: finalizing JS object %p (H102::TestFacebookX)", obj);
 }
 
 void js_register_h102_testFacebookX(JSContext *cx, JS::HandleObject global) {
@@ -151,7 +151,7 @@ void js_register_h102_testFacebookX(JSContext *cx, JS::HandleObject global) {
   jsb_h102_testFacebookX_class->enumerate = JS_EnumerateStub;
   jsb_h102_testFacebookX_class->resolve = JS_ResolveStub;
   jsb_h102_testFacebookX_class->convert = JS_ConvertStub;
-  jsb_h102_testFacebookX_class->finalize = js_h102_Utils_finalize;
+  jsb_h102_testFacebookX_class->finalize = js_h102_testFacebookX_finalize;
   jsb_h102_testFacebookX_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
   
   static JSPropertySpec properties[] = {
