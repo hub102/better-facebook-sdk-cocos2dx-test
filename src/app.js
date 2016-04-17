@@ -3,6 +3,8 @@ var HelloWorldLayer = cc.Layer.extend({
     sprite:null,
     _login: false,
     _btn: null,
+    _friends: null,
+
     ctor:function () {
         //////////////////////////////
         // 1. super init first
@@ -30,10 +32,10 @@ var HelloWorldLayer = cc.Layer.extend({
         btnLogin.addClickEventListener(
             function() {
                 if (!self._login) {
-                    h102.testFacebookX.testButtonLogin();
+                    h102.facebookX.login();
                     self._btnLogin.setTitleText("LOGOUT");
                 } else {
-                    h102.testFacebookX.testButtonLogout();
+                    h102.facebookX.logout();
                     self._btnLogin.setTitleText("LOGIN");
                 }
                 self._login = !self._login;
@@ -47,7 +49,13 @@ var HelloWorldLayer = cc.Layer.extend({
         btnShareLink.setTitleText("SHARE LINK");
         btnShareLink.setTitleFontSize(20);
         btnShareLink.addClickEventListener(function() {
-            h102.testFacebookX.testButtonShareLink();
+            var info = {
+                'type': "link",
+                'text': "Test description",
+                'title': "Test title",
+                'link': "https://hub102.com"
+            };
+            h102.facebookX.share(info);
         });
         this.addChild(btnShareLink);
 
@@ -57,7 +65,13 @@ var HelloWorldLayer = cc.Layer.extend({
         btnSharePhoto.setTitleText("SHARE PHOTO");
         btnSharePhoto.setTitleFontSize(20);
         btnSharePhoto.addClickEventListener(function() {
-            h102.testFacebookX.testButtonSharePhoto();
+            var info = {
+                'type': "photo",
+                'text': "Test description",
+                'title': "Test title",
+                'media': jsb.fileUtils.getWritablePath() + "hoodsters.png"
+            };
+            h102.facebookX.share(info);
         });
         this.addChild(btnSharePhoto);
 
@@ -67,7 +81,15 @@ var HelloWorldLayer = cc.Layer.extend({
         btnShareVideo.setTitleText("SHARE OPEN GRAPH STORY");
         btnShareVideo.setTitleFontSize(20);
         btnShareVideo.addClickEventListener(function() {
-            h102.testFacebookX.testButtonShareVideo();
+            var info = {
+                'type': "better_fbx:person",
+                'title': "I beat a friend",
+                'description': "Score: 10000",
+                'image': "https://fbcdn-photos-h-a.akamaihd.net/hphotos-ak-xfp1/t39.2081-0/p128x128/10333106_1693250547571713_1233636624_n.png",
+                'url': "https://apps.facebook.com/joselitopuzzle_test/"
+            }
+
+            h102.facebookX.shareOpenGraphStory(info, "better_fbx:beat", "person");
         });
         this.addChild(btnShareVideo);
 
@@ -77,7 +99,10 @@ var HelloWorldLayer = cc.Layer.extend({
         btnReqInviteFriend.setTitleText("REQUEST INVITE FRIENDS");
         btnReqInviteFriend.setTitleFontSize(20);
         btnReqInviteFriend.addClickEventListener(function() {
-            h102.testFacebookX.testReqInviteFriend();
+            var params = {
+                'ResponseFields': "id,name,picture,email,first_name,last_name,installed"
+            };
+            h102.facebookX.requestInvitableFriends(params);
         });
         this.addChild(btnReqInviteFriend);
 
@@ -86,14 +111,66 @@ var HelloWorldLayer = cc.Layer.extend({
         btnInviteFriend.y = size.height - 300;
         btnInviteFriend.setTitleText("INVITE FRIENDS");
         btnInviteFriend.setTitleFontSize(20);
+        var self = this;
         btnInviteFriend.addClickEventListener(function() {
-            h102.testFacebookX.testInviteFriend();
+            // h102.facebookX.inviteFriendsWithInviteIds(self._friends, "BetterX", "This is a test invitation");
         });
         this.addChild(btnInviteFriend);
 
         return true;
+
+        h102.facebookX.setListener({
+            'onLogin': this.onLogin.bind(this),
+            'onSharedSuccess': this.onSharedSuccess.bind(this),
+            'onSharedFailed': this.onSharedFailed.bind(this),
+            'onSharedCancel': this.onSharedCancel.bind(this),
+            'onAPI': this.onAPI.bind(this),
+            'onRequestInvitableFriends': this.onRequestInvitableFriends.bind(this),
+            'onInviteFriendsWWithInviteIdsResult': this.onInviteFriendsWWithInviteIdsResult.bind(this)
+        })
     }
 });
+
+var onLogin = function(isLogin, msg) {
+    cc.log("onLogin");
+    cc.log("isLogin = " + isLogin);
+    cc.log("msg = " + msg);
+    cc.log("access token = " + h102.facebookX.getAccessToken());
+    cc.log("user ID = " + h102.facebookX.getUserID());
+    h102.facebookX.api("me", "test_me");
+};
+
+var onSharedSuccess = function(msg) {
+    cc.log("onSharedSuccess: " + msg);
+}
+
+var onSharedFailed = function(msg) {
+    cc.log("onSharedFailed: " + msg);
+}
+
+var onSharedCancel = function() {
+    cc.log("onSharedCancel");
+}
+
+var onAPI = function(key, data) {
+    cc.log("onAPI");
+    cc.log("key = " + key);
+    if (key == "test_me") {
+        cc.log("data = " + data);
+    }
+}
+
+var onRequestInvitableFriends = function(friends) {
+    cc.log("onRequestInvitableFriends");
+    cc.log("friends = " + JSON.stringify(friends));
+    this._friends = friends || null;
+}
+
+var onInviteFriendsWWithInviteIdsResult = function(result, msg) {
+    cc.log("onInviteFriendsWWithInviteIdsResult");
+    cc.log("result = " + result);
+    cc.log("msg = " + msg);
+}
 
 var HelloWorldScene = cc.Scene.extend({
     onEnter:function () {

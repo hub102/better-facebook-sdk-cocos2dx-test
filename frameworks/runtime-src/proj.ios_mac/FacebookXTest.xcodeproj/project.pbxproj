@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0114E9371CBCBAF500A11713 /* TestFacebookX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0114E9351CBCBAF500A11713 /* TestFacebookX.cpp */; };
-		0114E93B1CBCBBDC00A11713 /* jsb_h102_testFacebookX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0114E9391CBCBBDC00A11713 /* jsb_h102_testFacebookX.cpp */; };
 		0114E9411CBD0E3100A11713 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0114E93E1CBD0E3100A11713 /* FBSDKCoreKit.framework */; };
 		0114E9421CBD0E3100A11713 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0114E93F1CBD0E3100A11713 /* FBSDKLoginKit.framework */; };
 		0114E9431CBD0E3100A11713 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0114E9401CBD0E3100A11713 /* FBSDKShareKit.framework */; };
@@ -678,7 +677,6 @@
 				017367311CBFC00700626C88 /* FacebookGameRequestDelegate.m in Sources */,
 				0114E94A1CBD750B00A11713 /* UIViewController+Utils.m in Sources */,
 				013B66A91CBCB9A300E1E9DB /* FacebookX.cpp in Sources */,
-				0114E93B1CBCBBDC00A11713 /* jsb_h102_testFacebookX.cpp in Sources */,
 				509D4AC917EBB2AB00697056 /* RootViewController.mm in Sources */,
 				0114E9371CBCBAF500A11713 /* TestFacebookX.cpp in Sources */,
 				D4545227156E28EF00887EB5 /* AppDelegate.cpp in Sources */,
