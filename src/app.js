@@ -117,8 +117,6 @@ var HelloWorldLayer = cc.Layer.extend({
         });
         this.addChild(btnInviteFriend);
 
-        return true;
-
         h102.facebookX.setListener({
             'onLogin': this.onLogin.bind(this),
             'onSharedSuccess': this.onSharedSuccess.bind(this),
@@ -127,50 +125,52 @@ var HelloWorldLayer = cc.Layer.extend({
             'onAPI': this.onAPI.bind(this),
             'onRequestInvitableFriends': this.onRequestInvitableFriends.bind(this),
             'onInviteFriendsWWithInviteIdsResult': this.onInviteFriendsWWithInviteIdsResult.bind(this)
-        })
+        });
+
+        return true;
+    },
+
+    onLogin: function(isLogin, msg) {
+        cc.log("onLogin");
+        cc.log("isLogin = " + isLogin);
+        cc.log("msg = " + msg);
+        cc.log("access token = " + h102.facebookX.getAccessToken());
+        cc.log("user ID = " + h102.facebookX.getUserID());
+        h102.facebookX.api("me", "test_me");
+    },
+
+    onSharedSuccess: function(msg) {
+        cc.log("onSharedSuccess: " + msg);
+    },
+
+    onSharedFailed: function(msg) {
+        cc.log("onSharedFailed: " + msg);
+    },
+
+    onSharedCancel: function() {
+        cc.log("onSharedCancel");
+    },
+
+    onAPI: function(key, data) {
+        cc.log("onAPI");
+        cc.log("key = " + key);
+        if (key == "test_me") {
+            cc.log("data = " + data);
+        }
+    },
+
+    onRequestInvitableFriends: function(friends) {
+        cc.log("onRequestInvitableFriends");
+        cc.log("friends = " + JSON.stringify(friends));
+        this._friends = friends || null;
+    },
+
+    onInviteFriendsWWithInviteIdsResult: function(result, msg) {
+        cc.log("onInviteFriendsWWithInviteIdsResult");
+        cc.log("result = " + result);
+        cc.log("msg = " + msg);
     }
 });
-
-var onLogin = function(isLogin, msg) {
-    cc.log("onLogin");
-    cc.log("isLogin = " + isLogin);
-    cc.log("msg = " + msg);
-    cc.log("access token = " + h102.facebookX.getAccessToken());
-    cc.log("user ID = " + h102.facebookX.getUserID());
-    h102.facebookX.api("me", "test_me");
-};
-
-var onSharedSuccess = function(msg) {
-    cc.log("onSharedSuccess: " + msg);
-}
-
-var onSharedFailed = function(msg) {
-    cc.log("onSharedFailed: " + msg);
-}
-
-var onSharedCancel = function() {
-    cc.log("onSharedCancel");
-}
-
-var onAPI = function(key, data) {
-    cc.log("onAPI");
-    cc.log("key = " + key);
-    if (key == "test_me") {
-        cc.log("data = " + data);
-    }
-}
-
-var onRequestInvitableFriends = function(friends) {
-    cc.log("onRequestInvitableFriends");
-    cc.log("friends = " + JSON.stringify(friends));
-    this._friends = friends || null;
-}
-
-var onInviteFriendsWWithInviteIdsResult = function(result, msg) {
-    cc.log("onInviteFriendsWWithInviteIdsResult");
-    cc.log("result = " + result);
-    cc.log("msg = " + msg);
-}
 
 var HelloWorldScene = cc.Scene.extend({
     onEnter:function () {
@@ -179,4 +179,3 @@ var HelloWorldScene = cc.Scene.extend({
         this.addChild(layer);
     }
 });
-

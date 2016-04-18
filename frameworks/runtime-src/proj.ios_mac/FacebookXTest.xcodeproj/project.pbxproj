@@ -26,6 +26,7 @@
 		1AD7E0A818C9DB93004817A6 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 1A6BF21418C9DB5900FB0E1C /* main.js */; };
 		1AD7E0A918C9DBE3004817A6 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 1A6BF21418C9DB5900FB0E1C /* main.js */; };
 		1AE159EC18C9DF3600FCA372 /* project.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A1A081B18C9DF05005C6854 /* project.json */; };
+		44553BE71CC53D840063A5CD /* JSHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44553BE51CC53D840063A5CD /* JSHelper.cpp */; };
 		502380DC17EBB88200990C9B /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 502380DB17EBB88200990C9B /* libcurl.dylib */; };
 		5091731A17ECDF7A00D62437 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 5091731417ECDF7A00D62437 /* Icon-29.png */; };
 		5091731B17ECDF7A00D62437 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 5091731517ECDF7A00D62437 /* Icon-40.png */; };
@@ -174,6 +175,8 @@
 		1A82F5FA169AC92500C4B13A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		1A96A4F2174A3432008653A9 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = "../../cocos2d-x/cocos2dx/platform/third_party/ios/libraries/libcurl.a"; sourceTree = "<group>"; };
 		1AC6FB34180E9ACB004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = "../../cocos2d-x/build/cocos2d_libs.xcodeproj"; sourceTree = "<group>"; };
+		44553BE51CC53D840063A5CD /* JSHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSHelper.cpp; sourceTree = "<group>"; };
+		44553BE61CC53D840063A5CD /* JSHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSHelper.h; sourceTree = "<group>"; };
 		502380DB17EBB88200990C9B /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
 		5091731417ECDF7A00D62437 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-29.png"; path = "ios/Icon-29.png"; sourceTree = "<group>"; };
 		5091731517ECDF7A00D62437 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40.png"; path = "ios/Icon-40.png"; sourceTree = "<group>"; };
@@ -313,6 +316,8 @@
 				013B66A31CBCB98B00E1E9DB /* js-bindings */,
 				013B66A71CBCB9A300E1E9DB /* FacebookX.cpp */,
 				013B66A81CBCB9A300E1E9DB /* FacebookX.hpp */,
+				44553BE51CC53D840063A5CD /* JSHelper.cpp */,
+				44553BE61CC53D840063A5CD /* JSHelper.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -680,6 +685,7 @@
 				509D4AC917EBB2AB00697056 /* RootViewController.mm in Sources */,
 				0114E9371CBCBAF500A11713 /* TestFacebookX.cpp in Sources */,
 				D4545227156E28EF00887EB5 /* AppDelegate.cpp in Sources */,
+				44553BE71CC53D840063A5CD /* JSHelper.cpp in Sources */,
 				509D4AC817EBB2AB00697056 /* main.m in Sources */,
 				013B66A21CBCB88E00E1E9DB /* README.md in Sources */,
 				509D4ABC17EBB2AB00697056 /* AppController.mm in Sources */,
