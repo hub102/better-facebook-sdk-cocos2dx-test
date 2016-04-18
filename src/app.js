@@ -2,7 +2,8 @@
 var HelloWorldLayer = cc.Layer.extend({
     sprite:null,
     _login: false,
-    _btn: null,
+    _btnLogin: null,
+    _btnInvite: null,
     _friends: null,
 
     ctor:function () {
@@ -116,6 +117,9 @@ var HelloWorldLayer = cc.Layer.extend({
             h102.facebookX.inviteFriendsWithInviteIds(self._friends, "BetterX", "This is a test invitation");
         });
         this.addChild(btnInviteFriend);
+        btnInviteFriend.setEnabled(false);
+        this._btnInvite = btnInviteFriend;
+        this._btnInvite.setOpacity(127);
 
         h102.facebookX.setListener({
             'onLogin': this.onLogin.bind(this),
@@ -161,8 +165,17 @@ var HelloWorldLayer = cc.Layer.extend({
 
     onRequestInvitableFriends: function(friends) {
         cc.log("onRequestInvitableFriends");
-        cc.log("friends = " + JSON.stringify(friends));
-        this._friends = friends || null;
+        // cc.log("friends = " + JSON.stringify(friends));
+        this._friends = [];
+        for (var i = 0; i < friends["data"].length; i++) {
+            this._friends.push(friends["data"][i]["id"]);
+        }
+
+        cc.log("This friends = " + JSON.stringify(this._friends));
+        if (this._friends.length > 0) {
+            this._btnInvite.setEnabled(true);
+            this._btnInvite.setOpacity(255);
+        }
     },
 
     onInviteFriendsWWithInviteIdsResult: function(result, msg) {
