@@ -113,7 +113,7 @@ var HelloWorldLayer = cc.Layer.extend({
         btnInviteFriend.setTitleFontSize(20);
         var self = this;
         btnInviteFriend.addClickEventListener(function() {
-            // h102.facebookX.inviteFriendsWithInviteIds(self._friends, "BetterX", "This is a test invitation");
+            h102.facebookX.inviteFriendsWithInviteIds(self._friends, "BetterX", "This is a test invitation");
         });
         this.addChild(btnInviteFriend);
 
