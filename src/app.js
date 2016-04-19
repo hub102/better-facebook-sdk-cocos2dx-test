@@ -140,7 +140,7 @@ var HelloWorldLayer = cc.Layer.extend({
         cc.log("msg = " + msg);
         cc.log("access token = " + h102.facebookX.getAccessToken());
         cc.log("user ID = " + h102.facebookX.getUserID());
-        h102.facebookX.api("me", "test_me");
+        h102.facebookX.api("/me/friends", "test_friends");
     },
 
     onSharedSuccess: function(msg) {
@@ -158,14 +158,13 @@ var HelloWorldLayer = cc.Layer.extend({
     onAPI: function(key, data) {
         cc.log("onAPI");
         cc.log("key = " + key);
-        if (key == "test_me") {
+        if (key == "test_friends") {
             cc.log("data = " + data);
         }
     },
 
     onRequestInvitableFriends: function(friends) {
         cc.log("onRequestInvitableFriends");
-        // cc.log("friends = " + JSON.stringify(friends));
         this._friends = [];
         for (var i = 0; i < friends["data"].length; i++) {
             this._friends.push(friends["data"][i]["id"]);
