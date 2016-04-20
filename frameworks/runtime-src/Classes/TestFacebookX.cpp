@@ -140,4 +140,8 @@ void TestFacebookX::onInviteFriendsResult( bool result, const std::string& msg )
   
 }
 
+void TestFacebookX::onGetUserInfo(const FBGraphUser &userInfo) {
+    
+}
+
 //    void onGetUserInfo( const FBGraphUser& userInfo );

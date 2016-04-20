@@ -128,7 +128,8 @@ var HelloWorldLayer = cc.Layer.extend({
             'onSharedCancel': this.onSharedCancel.bind(this),
             'onAPI': this.onAPI.bind(this),
             'onRequestInvitableFriends': this.onRequestInvitableFriends.bind(this),
-            'onInviteFriendsWWithInviteIdsResult': this.onInviteFriendsWWithInviteIdsResult.bind(this)
+            'onInviteFriendsWWithInviteIdsResult': this.onInviteFriendsWWithInviteIdsResult.bind(this),
+            'onGetUserInfo': this.onGetUserInfo.bind(this)
         });
 
         return true;
@@ -140,6 +141,7 @@ var HelloWorldLayer = cc.Layer.extend({
         cc.log("msg = " + msg);
         cc.log("access token = " + h102.facebookX.getAccessToken());
         cc.log("user ID = " + h102.facebookX.getUserID());
+        cc.log("user Name = " + h102.facebookX.getName());
         h102.facebookX.api("/me/friends", "test_friends");
     },
 
@@ -181,6 +183,10 @@ var HelloWorldLayer = cc.Layer.extend({
         cc.log("onInviteFriendsWWithInviteIdsResult");
         cc.log("result = " + result);
         cc.log("msg = " + msg);
+    },
+
+    onGetUserInfo: function(info) {
+        cc.log("onGetUserInfo: " + JSON.stringify(info));
     }
 });
 

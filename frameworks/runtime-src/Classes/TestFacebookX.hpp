@@ -45,7 +45,7 @@ public:
   virtual void onInviteFriendsWithInviteIdsResult( bool result, const std::string& msg );
   virtual void onInviteFriendsResult( bool result, const std::string& msg );
   
-  //    virtual void onGetUserInfo( const FBGraphUser& userInfo );
+  virtual void onGetUserInfo( const h102::FBGraphUser& userInfo );
 };
 
 #endif /* TestFacebookX_hpp */
