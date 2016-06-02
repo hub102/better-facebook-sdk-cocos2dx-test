@@ -29,11 +29,13 @@ TestFacebookX::TestFacebookX() {
 
 void TestFacebookX::testButtonLogin() {
 //  CCLOG("TestFacebookX ------> abc");
+  CCLOG("test login");
   FacebookX::login();
 }
 
 void TestFacebookX::testButtonLogout() {
 //  CCLOG("TestFacebookX ------> abc");
+  CCLOG("test logout");
   FacebookX::logout();
   // CCLOG("Is logged in = %d", FacebookX::isLoggedIn());
   // CCLOG("Access token = %s", FacebookX::getAccessToken().c_str());
@@ -41,6 +43,7 @@ void TestFacebookX::testButtonLogout() {
 }
 
 void TestFacebookX::testButtonShareLink() {
+  CCLOG("test share link");
   FBShareInfo info;
   info.type = FB_LINK;
   info.text = "ABC";
@@ -50,6 +53,7 @@ void TestFacebookX::testButtonShareLink() {
 }
 
 void TestFacebookX::testButtonSharePhoto() {
+  CCLOG("test share photo");
   FBShareInfo info;
   info.type = FB_PHOTO;
   info.text = "ABC";
@@ -59,6 +63,7 @@ void TestFacebookX::testButtonSharePhoto() {
 }
 
 void TestFacebookX::testButtonShareVideo() {
+  CCLOG("test share open graph story");
   FBGraphStoryProperties properties;
   properties.type = "better_fbx:person";
   properties.title = "I beat a friend";
@@ -78,6 +83,7 @@ void TestFacebookX::testReqInviteFriend() {
 }
 
 void TestFacebookX::testInviteFriends() {
+  CCLOG("test invite friend");
   FacebookX::inviteFriendsWithInviteIds(mFriendIds, "BetterX", "This is a test invitation");
 }
 

@@ -33,9 +33,11 @@ var HelloWorldLayer = cc.Layer.extend({
         btnLogin.addClickEventListener(
             function() {
                 if (!self._login) {
+                    cc.log("js: login");
                     h102.facebookX.login();
                     self._btnLogin.setTitleText("LOGOUT");
                 } else {
+                    cc.log("js: logout");
                     h102.facebookX.logout();
                     self._btnLogin.setTitleText("LOGIN");
                 }
@@ -50,6 +52,7 @@ var HelloWorldLayer = cc.Layer.extend({
         btnShareLink.setTitleText("SHARE LINK");
         btnShareLink.setTitleFontSize(20);
         btnShareLink.addClickEventListener(function() {
+            cc.log("js: share link");
             var info = {
                 'type': "link",
                 'text': "Test description",
@@ -66,6 +69,7 @@ var HelloWorldLayer = cc.Layer.extend({
         btnSharePhoto.setTitleText("SHARE PHOTO");
         btnSharePhoto.setTitleFontSize(20);
         btnSharePhoto.addClickEventListener(function() {
+            cc.log("js: share photo");
             var info = {
                 'type': "photo",
                 'text': "Test description",
@@ -100,6 +104,7 @@ var HelloWorldLayer = cc.Layer.extend({
         btnReqInviteFriend.setTitleText("REQUEST INVITE FRIENDS");
         btnReqInviteFriend.setTitleFontSize(20);
         btnReqInviteFriend.addClickEventListener(function() {
+            cc.log("js: request friend to invite");
             var params = {
                 'ResponseFields': "id,name,picture,email,first_name,last_name,installed"
             };
@@ -114,6 +119,7 @@ var HelloWorldLayer = cc.Layer.extend({
         btnInviteFriend.setTitleFontSize(20);
         var self = this;
         btnInviteFriend.addClickEventListener(function() {
+            cc.log("js: invite friends");
             h102.facebookX.inviteFriendsWithInviteIds(self._friends, "BetterX", "This is a test invitation");
         });
         this.addChild(btnInviteFriend);
