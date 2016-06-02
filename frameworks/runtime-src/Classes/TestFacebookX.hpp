@@ -11,7 +11,7 @@
 
 #include "cocos2d.h"
 
-#include "FacebookX.hpp"
+#include "../../FacebookX/Classes/FacebookX.hpp"
 
 #include <vector>
 
