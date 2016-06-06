@@ -8,7 +8,7 @@
         <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-2.10" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/../../FacebookX/platforms/android/libBetterFacebookX" />
+            <option value="$PROJECT_DIR$/../../FacebookX/platforms/android/FacebookX" />
             <option value="$PROJECT_DIR$/../../cocos2d-x/cocos/platform/android/libcocos2dx" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
@@ -16,7 +16,7 @@
         </option>
         <option name="myModules">
           <set>
-            <option value="$PROJECT_DIR$/../../FacebookX/platforms/android/libBetterFacebookX" />
+            <option value="$PROJECT_DIR$/../../FacebookX/platforms/android/FacebookX" />
             <option value="$PROJECT_DIR$/../../cocos2d-x/cocos/platform/android/libcocos2dx" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />

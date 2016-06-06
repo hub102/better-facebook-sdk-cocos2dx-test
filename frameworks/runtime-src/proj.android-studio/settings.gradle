@@ -1,6 +1,6 @@
 include ':libcocos2dx'
 project(':libcocos2dx').projectDir = new File(settingsDir, '../../cocos2d-x/cocos/platform/android/libcocos2dx')
-include ':betterFacebookX'
-project(':betterFacebookX').projectDir = new File(settingsDir, '../../FacebookX/platforms/android/libBetterFacebookX/')
+include ':FacebookX'
+project(':FacebookX').projectDir = new File(settingsDir, '../../FacebookX/platforms/android/FacebookX/')
 include ':FacebookXTest'
 project(':FacebookXTest').projectDir = new File(settingsDir, 'app')

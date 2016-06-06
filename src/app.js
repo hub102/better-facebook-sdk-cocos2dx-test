@@ -33,12 +33,16 @@ var HelloWorldLayer = cc.Layer.extend({
         btnLogin.addClickEventListener(
             function() {
                 if (!self._login) {
-                    cc.log("js: login");
+                    cc.log("js test: login");
                     h102.facebookX.login();
+                    // jsb.reflection.callStaticMethod("com/hub102/facebookx/FacebookX",
+                        // "login", "()V");
                     self._btnLogin.setTitleText("LOGOUT");
                 } else {
-                    cc.log("js: logout");
-                    h102.facebookX.logout();
+                    cc.log("js test: logout");
+                    // h102.facebookX.logout();
+                    jsb.reflection.callStaticMethod("com/hub102/facebookx/FacebookX",
+                        "logout", "()V");
                     self._btnLogin.setTitleText("LOGIN");
                 }
                 self._login = !self._login;
@@ -60,6 +64,7 @@ var HelloWorldLayer = cc.Layer.extend({
                 'link': "https://hub102.com"
             };
             h102.facebookX.share(info);
+            cc.log("getAccessToken = " + h102.facebookX.getAccessToken());
         });
         this.addChild(btnShareLink);
 
@@ -146,9 +151,9 @@ var HelloWorldLayer = cc.Layer.extend({
         cc.log("isLogin = " + isLogin);
         cc.log("msg = " + msg);
         cc.log("access token = " + h102.facebookX.getAccessToken());
-        cc.log("user ID = " + h102.facebookX.getUserID());
-        cc.log("user Name = " + h102.facebookX.getName());
-        h102.facebookX.api("/me/friends", "test_friends");
+        // cc.log("user ID = " + h102.facebookX.getUserID());
+        // cc.log("user Name = " + h102.facebookX.getName());
+        // h102.facebookX.api("/me/friends", "test_friends");
     },
 
     onSharedSuccess: function(msg) {
