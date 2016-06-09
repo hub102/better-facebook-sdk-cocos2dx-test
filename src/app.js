@@ -1,4 +1,3 @@
-
 var HelloWorldLayer = cc.Layer.extend({
     sprite:null,
     _login: false,
@@ -26,26 +25,24 @@ var HelloWorldLayer = cc.Layer.extend({
         var btnLogin = new ccui.Button();
         btnLogin.x = size.width/2;
         btnLogin.y = size.height - 50;
-        btnLogin.setTitleText("LOGIN");
         btnLogin.setTitleFontSize(20);
         this._btnLogin = btnLogin;
+        this._login = h102.facebookX.isLoggedIn();
+        cc.log("first test login = " + this._login);
+        btnLogin.setTitleText(this._login ? "LOGOUT" : "LOGIN");
 
         btnLogin.addClickEventListener(
             function() {
+                cc.log("JS login: Pre-check accessToken = " + h102.facebookX.getAccessToken());
                 if (!self._login) {
                     cc.log("js test: login");
                     h102.facebookX.login();
-                    // jsb.reflection.callStaticMethod("com/hub102/facebookx/FacebookX",
-                        // "login", "()V");
-                    self._btnLogin.setTitleText("LOGOUT");
                 } else {
                     cc.log("js test: logout");
-                    // h102.facebookX.logout();
-                    jsb.reflection.callStaticMethod("com/hub102/facebookx/FacebookX",
-                        "logout", "()V");
+                    h102.facebookX.logout();
+                    self._login = false;
                     self._btnLogin.setTitleText("LOGIN");
                 }
-                self._login = !self._login;
             }
         );
         this.addChild(btnLogin, 2);
@@ -64,7 +61,6 @@ var HelloWorldLayer = cc.Layer.extend({
                 'link': "https://hub102.com"
             };
             h102.facebookX.share(info);
-            cc.log("getAccessToken = " + h102.facebookX.getAccessToken());
         });
         this.addChild(btnShareLink);
 
@@ -147,10 +143,11 @@ var HelloWorldLayer = cc.Layer.extend({
     },
 
     onLogin: function(isLogin, msg) {
-        cc.log("onLogin");
-        cc.log("isLogin = " + isLogin);
-        cc.log("msg = " + msg);
-        cc.log("access token = " + h102.facebookX.getAccessToken());
+        if (isLogin) {
+            cc.log("access token = " + h102.facebookX.getAccessToken());
+            this._login = true;
+            this._btnLogin.setTitleText("LOGOUT");
+        } 
         // cc.log("user ID = " + h102.facebookX.getUserID());
         // cc.log("user Name = " + h102.facebookX.getName());
         // h102.facebookX.api("/me/friends", "test_friends");

@@ -28,6 +28,9 @@ import com.hub102.facebookx.FacebookX;
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
 import android.content.Intent;
+import android.os.Bundle;
+import com.facebook.AccessTokenTracker;
+import com.facebook.AccessToken;
 
 public class AppActivity extends Cocos2dxActivity {
     @Override
@@ -35,8 +38,6 @@ public class AppActivity extends Cocos2dxActivity {
         Cocos2dxGLSurfaceView glSurfaceView = new Cocos2dxGLSurfaceView(this);
         // TestCpp should create stencil buffer
         glSurfaceView.setEGLConfigChooser(5, 6, 5, 0, 16, 8);
-
-        FacebookX.init(this);
 
         return glSurfaceView;
     }
@@ -46,5 +47,33 @@ public class AppActivity extends Cocos2dxActivity {
     {
         super.onActivityResult(requestCode, resultCode, data);
         FacebookX.getCallbackManager().onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        FacebookX.init(this);
+        AccessTokenTracker fxAccessTokenTracker = FacebookX.getAccessTokenTracker();
+        fxAccessTokenTracker = new AccessTokenTracker() {
+            @Override
+            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken newAccessToken) {
+                updateWithToken(newAccessToken);
+            }
+        };
+        updateWithToken(AccessToken.getCurrentAccessToken());
+    }
+
+    @Override
+    protected void onDestroy() {
+        FacebookX.getAccessTokenTracker().stopTracking();
+        super.onDestroy();
+    }
+
+    private void updateWithToken(AccessToken currentAccessToken) {
+        if (currentAccessToken != null) {
+            FacebookX.setLoggedIn(true);
+        } else {
+            FacebookX.setLoggedIn(false);
+        }
     }
 }
