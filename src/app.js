@@ -147,10 +147,11 @@ var HelloWorldLayer = cc.Layer.extend({
             cc.log("access token = " + h102.facebookX.getAccessToken());
             this._login = true;
             this._btnLogin.setTitleText("LOGOUT");
+            
+            cc.log("user ID = " + h102.facebookX.getUserID());
+            cc.log("user Name = " + h102.facebookX.getName());
+            h102.facebookX.api("/me/friends", "test_friends");
         } 
-        // cc.log("user ID = " + h102.facebookX.getUserID());
-        // cc.log("user Name = " + h102.facebookX.getName());
-        // h102.facebookX.api("/me/friends", "test_friends");
     },
 
     onSharedSuccess: function(msg) {
