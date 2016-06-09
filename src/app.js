@@ -135,7 +135,7 @@ var HelloWorldLayer = cc.Layer.extend({
             'onSharedCancel': this.onSharedCancel.bind(this),
             'onAPI': this.onAPI.bind(this),
             'onRequestInvitableFriends': this.onRequestInvitableFriends.bind(this),
-            'onInviteFriendsWWithInviteIdsResult': this.onInviteFriendsWWithInviteIdsResult.bind(this),
+            'onInviteFriendsWithInviteIdsResult': this.onInviteFriendsWithInviteIdsResult.bind(this),
             'onGetUserInfo': this.onGetUserInfo.bind(this)
         });
 
@@ -174,21 +174,26 @@ var HelloWorldLayer = cc.Layer.extend({
     },
 
     onRequestInvitableFriends: function(friends) {
-        cc.log("onRequestInvitableFriends");
+        cc.log("onRequestInvitableFriends:");
+        cc.log(JSON.stringify(friends));
+        if (!friends) {
+            cc.log("no invitable friend");
+            return;
+        }
         this._friends = [];
         for (var i = 0; i < friends["data"].length; i++) {
             this._friends.push(friends["data"][i]["id"]);
         }
+        cc.log("Invitable number = " + this._friends.length);
 
-        cc.log("This friends = " + JSON.stringify(this._friends));
         if (this._friends.length > 0) {
             this._btnInvite.setEnabled(true);
             this._btnInvite.setOpacity(255);
         }
     },
 
-    onInviteFriendsWWithInviteIdsResult: function(result, msg) {
-        cc.log("onInviteFriendsWWithInviteIdsResult");
+    onInviteFriendsWithInviteIdsResult: function(result, msg) {
+        cc.log("onInviteFriendsWithInviteIdsResult");
         cc.log("result = " + result);
         cc.log("msg = " + msg);
     },
