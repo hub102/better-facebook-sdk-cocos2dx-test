@@ -56,8 +56,8 @@ var HelloWorldLayer = cc.Layer.extend({
             cc.log("js: share link");
             var info = {
                 'type': "link",
-                'text': "Test description",
-                'title': "Test title",
+                'text': "Test description tiếng Việt có dấu",
+                'title': "Test title tiếng Việt có dấu",
                 'link': "https://hub102.com"
             };
             h102.facebookX.share(info);
@@ -73,31 +73,31 @@ var HelloWorldLayer = cc.Layer.extend({
             cc.log("js: share photo");
             var info = {
                 'type': "photo",
-                'text': "Test description",
-                'title': "Test title",
+                'text': "Test description tiếng Việt có dấu",
+                'title': "Test title tiếng Việt có dấu",
                 'media': jsb.fileUtils.getWritablePath() + "hoodsters.png"
             };
             h102.facebookX.share(info);
         });
         this.addChild(btnSharePhoto);
 
-        var btnShareVideo = new ccui.Button();
-        btnShareVideo.x = size.width/2;
-        btnShareVideo.y = size.height - 200;
-        btnShareVideo.setTitleText("SHARE OPEN GRAPH STORY");
-        btnShareVideo.setTitleFontSize(20);
-        btnShareVideo.addClickEventListener(function() {
+        var btnShareStory = new ccui.Button();
+        btnShareStory.x = size.width/2;
+        btnShareStory.y = size.height - 200;
+        btnShareStory.setTitleText("SHARE OPEN GRAPH STORY");
+        btnShareStory.setTitleFontSize(20);
+        btnShareStory.addClickEventListener(function() {
             var info = {
                 'type': "better_fbx:person",
-                'title': "I beat a friend",
-                'description': "Score: 10000",
+                'title': "Tôi đã vượt qua một người bạn",
+                'description': "Điểm số: 10000",
                 'image': "https://fbcdn-photos-h-a.akamaihd.net/hphotos-ak-xfp1/t39.2081-0/p128x128/10333106_1693250547571713_1233636624_n.png",
                 'url': "https://apps.facebook.com/joselitopuzzle_test/"
             }
 
             h102.facebookX.shareOpenGraphStory(info, "better_fbx:beat", "person");
         });
-        this.addChild(btnShareVideo);
+        this.addChild(btnShareStory);
 
         var btnReqInviteFriend = new ccui.Button();
         btnReqInviteFriend.x = size.width/2;
