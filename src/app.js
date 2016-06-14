@@ -148,10 +148,12 @@ var HelloWorldLayer = cc.Layer.extend({
             this._login = true;
             this._btnLogin.setTitleText("LOGOUT");
             
-            cc.log("user ID = " + h102.facebookX.getUserID());
-            cc.log("user Name = " + h102.facebookX.getName());
+            // cc.log("user ID = " + h102.facebookX.getUserID());
+            // cc.log("user Name = " + h102.facebookX.getName());
             h102.facebookX.api("/me/friends", "test_friends");
-        } 
+        } else {
+            cc.log("Login failed: " + msg);
+        }
     },
 
     onSharedSuccess: function(msg) {

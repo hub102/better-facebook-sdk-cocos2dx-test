@@ -275,11 +275,13 @@ h102.facebookX.setListener = h102.facebookX.setListener || function(listeners) {
 	h102.facebookX.onSharedCancel = listeners['onSharedCancel'] || h102.facebookX.onSharedCancel;
 	h102.facebookX.onGetUserInfo = listeners['onGetUserInfo'] || h102.facebookX.onGetUserInfo;
 	h102.facebookX.onAPI = listeners['onAPI'] || h102.facebookX.onAPI;
+    h102.facebookX.onAPI = listeners['onAPIFailed'] || h102.facebookX.onAPIFailed; 
 };
 
 h102.facebookX.api = h102.facebookX.api || function(path, method, params, tag) {
 	cc.log("called api: path = " + path + "; method = " + method + "; params = " + params + "; tag = " + tag);
 	var callback = h102.facebookX.onAPI;
+    var callbackFailed = h102.facebookX.onAPIFailed;
 	if (!h102.facebookX._isLoggedIn) {
 		h102.facebookX._cachedAPICalled.push({
 			_path: path,
@@ -291,7 +293,7 @@ h102.facebookX.api = h102.facebookX.api || function(path, method, params, tag) {
 				if (response && !response.error) {
 					callback && callback(tag, response);
 				} else {
-					callback && callback(tag);
+					callbackFailed && callbackFailed(tag, response);
 				}
 			}
 		})
@@ -305,7 +307,7 @@ h102.facebookX.api = h102.facebookX.api || function(path, method, params, tag) {
 				if (response && !response.error) {
 					callback && callback(tag, response);
 				} else {
-					callback && callback(tag);
+					callbackFailed && callbackFailed(tag, response);
 				}
 			}
 		);

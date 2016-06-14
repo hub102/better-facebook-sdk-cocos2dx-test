@@ -23,10 +23,15 @@ THE SOFTWARE.
 ****************************************************************************/
 package org.cocos2dx.javascript;
 
+import com.facebook.Profile;
+import com.facebook.ProfileTracker;
 import com.hub102.facebookx.FacebookX;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.content.Intent;
 import android.os.Bundle;
 import com.facebook.AccessTokenTracker;
@@ -43,8 +48,7 @@ public class AppActivity extends Cocos2dxActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         FacebookX.getCallbackManager().onActivityResult(requestCode, resultCode, data);
     }
@@ -56,8 +60,28 @@ public class AppActivity extends Cocos2dxActivity {
         AccessTokenTracker fxAccessTokenTracker = FacebookX.getAccessTokenTracker();
         fxAccessTokenTracker = new AccessTokenTracker() {
             @Override
-            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken newAccessToken) {
-                updateWithToken(newAccessToken);
+            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+                updateWithToken(currentAccessToken);
+            }
+        };
+        ProfileTracker fxProfileTracker = FacebookX.getProfileTracker();
+        fxProfileTracker = new ProfileTracker() {
+            @Override
+            protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
+                if (currentProfile != null) {
+                    JSONObject userInfo = new JSONObject();
+                    try {
+                        userInfo.put("id", currentProfile.getId());
+                        userInfo.put("name", currentProfile.getName());
+                        userInfo.put("first_name", currentProfile.getFirstName());
+                        userInfo.put("last_name", currentProfile.getLastName());
+                        userInfo.put("middle_name", currentProfile.getMiddleName());
+                        userInfo.put("link_uri", currentProfile.getLinkUri());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    FacebookX.onGetUserInfoWrapper(userInfo.toString());
+                }
             }
         };
         updateWithToken(AccessToken.getCurrentAccessToken());

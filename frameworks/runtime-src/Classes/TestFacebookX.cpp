@@ -120,6 +120,14 @@ void TestFacebookX::onAPI(const std::string& key, const std::string& jsonData) {
     }
 }
 
+void TestFacebookX::onAPIFailed(const std::string& key, const std::string& msg) {
+    cout << "onAPIFailed, tag = " << key << "\n";
+
+    if (key == "test_me") {
+        cout << "Msg = " << msg << "\n";
+    }
+}
+
 void TestFacebookX::onPermission(bool isLogin, const std::string& msg) {
   
 }

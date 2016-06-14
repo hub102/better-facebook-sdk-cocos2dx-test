@@ -39,6 +39,7 @@ public:
   virtual void onSharedFailed(const std::string& message);
   virtual void onSharedCancel();
   virtual void onAPI(const std::string& key, const std::string& jsonData);
+  virtual void onAPIFailed(const std::string& key, const std::string& msg);
   virtual void onPermission(bool isLogin, const std::string& msg);
   virtual void onFetchFriends(bool ok, const std::string& msg);
   virtual void onRequestInvitableFriends( const h102::FBInvitableFriendsInfo& friends );
