@@ -134,6 +134,7 @@ var HelloWorldLayer = cc.Layer.extend({
             'onSharedFailed': this.onSharedFailed.bind(this),
             'onSharedCancel': this.onSharedCancel.bind(this),
             'onAPI': this.onAPI.bind(this),
+            'onAPIFailed': this.onAPIFailed.bind(this),
             'onRequestInvitableFriends': this.onRequestInvitableFriends.bind(this),
             'onInviteFriendsWithInviteIdsResult': this.onInviteFriendsWithInviteIdsResult.bind(this),
             'onGetUserInfo': this.onGetUserInfo.bind(this)
@@ -170,6 +171,14 @@ var HelloWorldLayer = cc.Layer.extend({
 
     onAPI: function(key, data) {
         cc.log("onAPI");
+        cc.log("key = " + key);
+        if (key == "test_friends") {
+            cc.log("data = " + data);
+        }
+    },
+
+    onAPIFailed: function(key, data) {
+        cc.log("onAPIFailed");
         cc.log("key = " + key);
         if (key == "test_friends") {
             cc.log("data = " + data);

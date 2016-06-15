@@ -15,6 +15,7 @@ h102.facebookX.onSharedFailed = null;
 h102.facebookX.onSharedCancel = null;
 h102.facebookX.onGetUserInfo = null;
 h102.facebookX.onAPI = null;
+h102.facebookX.onAPIFailed = null;
 
 h102.facebookX._cachedAPICalled = [];
 
@@ -419,26 +420,6 @@ h102.facebookX.shareOpenGraphStory = h102.facebookX.shareOpenGraphStory || funct
 
 // },
 
-// onLogin: function(isLogin, msg) {
-
-// },
-
-// onSharedSuccess: function(message) {
-
-// },
-
-// onSharedFailed: function(message) {
-
-// },
-
-// onSharedCancel: function() {
-
-// },
-
-// onAPI: function(key, jsonData) {
-
-// },
-
 // onPermission: function(isLogin, msg) {
 
 // },
@@ -447,14 +428,6 @@ h102.facebookX.shareOpenGraphStory = h102.facebookX.shareOpenGraphStory || funct
 
 // },
 
-// onRequestInvitableFriends: function(friends) {
-
-// },
-
 // onInviteFriendsResult: function(result, msg){
-
-// },
-
-// onGetUserInfo: function(userInfo) {
 
 // }
