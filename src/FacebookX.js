@@ -62,32 +62,44 @@ h102.facebookX._apiQueued = h102.facebookX._apiQueued || function() {
 }
 
 h102.facebookX.login = h102.facebookX.login || function(permissions) {
-	var callbackLogin = h102.facebookX.onLogin;
-	var callbackInfo = h102.facebookX.onGetUserInfo;
-	FB.login(function(response) {
-		if (response.authResponse) {
-			cc.log("facebookX: Welcome! Fetching your infomation.... ");
-			h102.facebookX._userId = response.authResponse.userID;
-			h102.facebookX._accessToken = response.authResponse.accessToken;
-			h102.facebookX._isLoggedIn = true;
-			FB.api("/me", function(_response) {
-				cc.log("facebookX: Good to see you, " + _response.name);
-				callbackLogin && callbackLogin(true, response);
-				callbackInfo && callbackInfo(_response);
-			});
-			h102.facebookX._persmissions = permissions;
-		} else {
-			cc.log("facebookX: User cancelled login or did not fully authorized.");
-			callbackLogin && callbackLogin(false);
-			callbackInfo && callbackInfo(false);
-		}
-	}, {
-		scope: permissions,
-		return_scopes: true
-	});
+    var callbackLogin = h102.facebookX.onLogin;
+    var callbackInfo = h102.facebookX.onGetUserInfo;
+
+    if (h102.facebookX._isLoggedIn) {
+        cc.log("facebookX: User is already logged in.");
+        FB.api("/me", function(_response) {
+            cc.log("facebookX: Good to see you, " + _response.name);
+            callbackLogin && callbackLogin(true, "User is already logged in");
+            callbackInfo && callbackInfo(_response);
+        });        
+        return;
+    }
+
+    FB.login(function(response) {
+        if (response.authResponse) {
+            cc.log("facebookX: Welcome! Fetching your infomation.... ");
+            h102.facebookX._userId = response.authResponse.userID;
+            h102.facebookX._accessToken = response.authResponse.accessToken;
+            h102.facebookX._isLoggedIn = true;
+            FB.api("/me", function(_response) {
+                cc.log("facebookX: Good to see you, " + _response.name);
+                callbackLogin && callbackLogin(true, response);
+                callbackInfo && callbackInfo(_response);
+            });
+            h102.facebookX._persmissions = permissions;
+        } else {
+            cc.log("facebookX: User cancelled login or did not fully authorized.");
+            callbackLogin && callbackLogin(false);
+            callbackInfo && callbackInfo(false);
+        }
+    }, {
+        scope: permissions,
+        return_scopes: true
+    });
 };
 
 h102.facebookX.logout = h102.facebookX.logout || function() {
+    h102.facebookX._isLoggedIn = false;
 	FB.logout(function(response) {
 		cc.log("facebookX: Logged out.");
 	});
